@@ -44,10 +44,10 @@ const baseMaterials = [
   { label: "Planilha de interpretação guiada", type: "planilha" as const },
 ];
 
-function buildModules(prefix: string, titles: string[][]) {
+function buildModules(prefix: string, titles: string[][]): Module[] {
   return titles.map((lessons, mIndex) => ({
     id: `${prefix}-m${mIndex + 1}`,
-    title: lessons[0],
+    title: lessons[0] ?? `Módulo ${mIndex + 1}`,
     lessons: lessons.slice(1).map((title, lIndex) => ({
       id: `${prefix}-m${mIndex + 1}-a${lIndex + 1}`,
       title,
