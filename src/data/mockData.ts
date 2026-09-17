@@ -7,6 +7,7 @@ import type {
   GunaScore,
   LearningTrack,
   MentorshipProgram,
+  Module,
   Plan,
   Seniority,
 } from "@/types/astrology";
