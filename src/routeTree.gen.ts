@@ -16,6 +16,7 @@ import { Route as MentoriaRouteImport } from './routes/mentoria'
 import { Route as PlanosRouteImport } from './routes/planos'
 import { Route as ArtigosIndexRouteImport } from './routes/artigos.index'
 import { Route as ArtigosSlugRouteImport } from './routes/artigos.$slug'
+import { Route as CursoSlugRouteImport } from './routes/curso.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -52,6 +53,11 @@ const ArtigosSlugRoute = ArtigosSlugRouteImport.update({
   path: '/artigos/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CursoSlugRoute = CursoSlugRouteImport.update({
+  id: '/curso/$slug',
+  path: '/curso/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/mentoria': typeof MentoriaRoute
   '/planos': typeof PlanosRoute
   '/artigos/$slug': typeof ArtigosSlugRoute
+  '/curso/$slug': typeof CursoSlugRoute
   '/artigos/': typeof ArtigosIndexRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/mentoria': typeof MentoriaRoute
   '/planos': typeof PlanosRoute
   '/artigos/$slug': typeof ArtigosSlugRoute
+  '/curso/$slug': typeof CursoSlugRoute
   '/artigos': typeof ArtigosIndexRoute
 }
 export interface FileRoutesById {
@@ -79,6 +87,7 @@ export interface FileRoutesById {
   '/mentoria': typeof MentoriaRoute
   '/planos': typeof PlanosRoute
   '/artigos/$slug': typeof ArtigosSlugRoute
+  '/curso/$slug': typeof CursoSlugRoute
   '/artigos/': typeof ArtigosIndexRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/mentoria'
     | '/planos'
     | '/artigos/$slug'
+    | '/curso/$slug'
     | '/artigos/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/mentoria'
     | '/planos'
     | '/artigos/$slug'
+    | '/curso/$slug'
     | '/artigos'
   id:
     | '__root__'
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/mentoria'
     | '/planos'
     | '/artigos/$slug'
+    | '/curso/$slug'
     | '/artigos/'
   fileRoutesById: FileRoutesById
 }
@@ -118,6 +130,7 @@ export interface RootRouteChildren {
   MentoriaRoute: typeof MentoriaRoute
   PlanosRoute: typeof PlanosRoute
   ArtigosSlugRoute: typeof ArtigosSlugRoute
+  CursoSlugRoute: typeof CursoSlugRoute
   ArtigosIndexRoute: typeof ArtigosIndexRoute
 }
 
@@ -172,6 +185,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ArtigosSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/curso/$slug': {
+      id: '/curso/$slug'
+      path: '/curso/$slug'
+      fullPath: '/curso/$slug'
+      preLoaderRoute: typeof CursoSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -182,6 +202,7 @@ const rootRouteChildren: RootRouteChildren = {
   MentoriaRoute: MentoriaRoute,
   PlanosRoute: PlanosRoute,
   ArtigosSlugRoute: ArtigosSlugRoute,
+  CursoSlugRoute: CursoSlugRoute,
   ArtigosIndexRoute: ArtigosIndexRoute,
 }
 export const routeTree = rootRouteImport
