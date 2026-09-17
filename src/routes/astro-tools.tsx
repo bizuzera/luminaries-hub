@@ -22,11 +22,11 @@ import { charts, dashaTimeline, gunaScores } from "@/data/mockData";
 import type { PlanetPosition } from "@/types/astrology";
 import { cn } from "@/lib/utils";
 
-type Search = { tab?: string };
+type Search = { tab: string };
 
 export const Route = createFileRoute("/astro-tools")({
   validateSearch: (search: Record<string, unknown>): Search => ({
-    tab: typeof search.tab === "string" ? search.tab : undefined,
+    tab: typeof search["tab"] === "string" ? search["tab"] : "natal",
   }),
   head: () => ({
     meta: [
