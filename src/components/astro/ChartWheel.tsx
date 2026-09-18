@@ -24,6 +24,8 @@ const glyphs: Record<string, string> = {
   Ketu: "☋",
 };
 
+const rnd = (n: number) => Math.round(n * 1000) / 1000;
+
 export function ChartWheel({ positions }: { positions: PlanetPosition[] }) {
   const size = 320;
   const c = size / 2;
@@ -49,16 +51,16 @@ export function ChartWheel({ positions }: { positions: PlanetPosition[] }) {
         return (
           <g key={i}>
             <line
-              x1={c + 70 * Math.cos(a)}
-              y1={c + 70 * Math.sin(a)}
-              x2={c + 150 * Math.cos(a)}
-              y2={c + 150 * Math.sin(a)}
+              x1={rnd(c + 70 * Math.cos(a))}
+              y1={rnd(c + 70 * Math.sin(a))}
+              x2={rnd(c + 150 * Math.cos(a))}
+              y2={rnd(c + 150 * Math.sin(a))}
               className="stroke-border"
               strokeWidth={1}
             />
             <text
-              x={c + 135 * Math.cos(houseAngle)}
-              y={c + 135 * Math.sin(houseAngle)}
+              x={rnd(c + 135 * Math.cos(houseAngle))}
+              y={rnd(c + 135 * Math.sin(houseAngle))}
               textAnchor="middle"
               dominantBaseline="middle"
               className="fill-muted-foreground text-[9px]"
@@ -80,14 +82,14 @@ export function ChartWheel({ positions }: { positions: PlanetPosition[] }) {
             transition={{ delay: 0.15 + i * 0.05 }}
           >
             <circle
-              cx={c + r * Math.cos(angle)}
-              cy={c + r * Math.sin(angle)}
+              cx={rnd(c + r * Math.cos(angle))}
+              cy={rnd(c + r * Math.sin(angle))}
               r={13}
               className="fill-secondary stroke-primary/40"
             />
             <text
-              x={c + r * Math.cos(angle)}
-              y={c + r * Math.sin(angle)}
+              x={rnd(c + r * Math.cos(angle))}
+              y={rnd(c + r * Math.sin(angle))}
               textAnchor="middle"
               dominantBaseline="central"
               className="fill-primary text-[12px]"
