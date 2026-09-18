@@ -82,14 +82,14 @@ export function ChartWheel({ positions }: { positions: PlanetPosition[] }) {
             transition={{ delay: 0.15 + i * 0.05 }}
           >
             <circle
-              cx={c + r * Math.cos(angle)}
-              cy={c + r * Math.sin(angle)}
+              cx={rnd(c + r * Math.cos(angle))}
+              cy={rnd(c + r * Math.sin(angle))}
               r={13}
               className="fill-secondary stroke-primary/40"
             />
             <text
-              x={c + r * Math.cos(angle)}
-              y={c + r * Math.sin(angle)}
+              x={rnd(c + r * Math.cos(angle))}
+              y={rnd(c + r * Math.sin(angle))}
               textAnchor="middle"
               dominantBaseline="central"
               className="fill-primary text-[12px]"
